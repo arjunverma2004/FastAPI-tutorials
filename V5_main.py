@@ -135,7 +135,7 @@ def update_patient(patient_id: str, patient_update: PatientUpdate):
     existing_patient_info['id'] = patient_id
     patient_pydandic_obj = Patient(**existing_patient_info)
     #-> pydantic object -> dict
-    existing_patient_info = patient_pydandic_obj.model_dump(exclude='id')
+    existing_patient_info = patient_pydandic_obj.model_dump(exclude=['id'])
 
     # add this dict to data
     data[patient_id] = existing_patient_info
